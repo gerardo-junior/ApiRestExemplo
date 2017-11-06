@@ -1,0 +1,25 @@
+version: '2'
+services:
+    db:
+        image: mysql:5.6
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./.docker/db/data:/var/lib/mysql/data
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: bannet
+            MYSQL_USER: bannet
+            MYSQL_PASSWORD: bannet
+    api:
+        build:
+          context: ./.docker/bannet.api.environment
+          args:
+            TIMEZONE: ${TIMEZONE}
+            XDEBUGIDEKEY: 'xdebug-idekey'
+        ports:
+            - "8000:80"
+        volumes:
+            - .:/var/www/html:cached
+        links:
+            - db
