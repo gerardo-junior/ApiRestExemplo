@@ -17,6 +17,7 @@ services:
           args:
             TIMEZONE: ${TIMEZONE}
             XDEBUGIDEKEY: 'xdebug-idekey'
+        restart: 'always'
         ports:
             - "8000:80"
         volumes:

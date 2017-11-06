@@ -40,3 +40,7 @@ RUN echo "xdebug.remote_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-x
 
 WORKDIR /var/www/html
 EXPOSE 80
+
+CMD ['composer', 'install', '--no-interaction']
+CMD ['php', 'bin/console', 'doctrine:database:create']
+CMD ['php', 'bin/console', 'doctrine:schema:create', '--force']
