@@ -6,6 +6,17 @@ use AppBundle\Entity\Insurer;
 
 class InsurerService
 {
+    private $doctrine;
+    private $em;
+    private $validator;
+
+    public function __construct($doctrine, $validator)
+    {
+        $this->doctrine = $doctrine;
+        $this->em = $this->doctrine->getManager();
+        $this->validator = $validator;
+    }
+
     public function calculateValue(Client $client, Insurer $insurer)
     {
         $rules = $insurer->getRules();

@@ -1,0 +1,7 @@
+services:
+    client:
+        class: AppBundle\Service\ClientService
+        arguments: ["@doctrine", "@validator"]
+    insurer:
+        class: AppBundle\Service\InsurerService
+        arguments: ["@doctrine", "@validator"]
