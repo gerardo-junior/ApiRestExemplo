@@ -21,9 +21,9 @@ class BrandFixture extends Fixture
                         'Porsche',
                         'BMW');
 
-        foreach ($brands as $brandArray) {
+        foreach ($brands as $brandName) {
             $brand = new Brand();
-            $brand->setName($brandArray['name']);
+            $brand->setName($brandName);
             $manager->persist($brand);
         }
 

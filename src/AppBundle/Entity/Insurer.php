@@ -31,12 +31,6 @@ class Insurer
     private $initialPrice;
 
     /**
-     * @Assert\NotNull()
-     * @ORM\Column(type="json_array")
-     */
-    private $rule;
-
-    /**
      * @return mixed
      */
     public function getId()
@@ -77,24 +71,6 @@ class Insurer
     public function setInitialPrice($initialPrice)
     {
         $this->initialPrice = $initialPrice;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRule()
-    {
-        return $this->rule;
-    }
-
-    /**
-     * @param mixed $rule
-     * @return self
-     */
-    public function setRule($rule)
-    {
-        $this->rule = $rule;
         return $this;
     }
 }
